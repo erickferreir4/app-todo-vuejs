@@ -1,4 +1,4 @@
-# [app-todo-vuejs](https://erickferreir4.github.io/app-todo-vuejs/)
+# [Todo List in Vuejs](https://erickferreir4.github.io/app-todo-vuejs/)
 
 
 ## Project setup
