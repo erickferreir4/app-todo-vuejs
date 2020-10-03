@@ -1,3 +1,7 @@
 module.exports = {
-	outputDir : './docs'
+	outputDir : './docs',
+	productionSourceMap: false,
+  	publicPath: process.env.NODE_ENV === 'production'
+    	? '/app-todo-vuejs/'
+    	: '/'
 }
