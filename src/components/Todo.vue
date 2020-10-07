@@ -1,9 +1,11 @@
 <template>
 
 	<div class="todo">
-		<form v-on:submit.prevent="addTask">
+		<!--<form v-on:submit.prevent="addTask">-->
+		<form>
 			<label v-on:click="toggleCompleted" v-bind:class="{ active : completedAll && completedActive }">❯</label>
-			<input type="text" v-model="newTask" placeholder="What needs to be done?" />
+			<!--<input type="text" v-model="newTask" placeholder="What needs to be done?" />-->
+			<textarea v-on:keydown="addTask" v-model="newTask" rows="1"  placeholder="What needs to be done?"></textarea>
 		</form>
 
 		<ul>
@@ -60,15 +62,21 @@ export default {
 		}
 	},
 	methods: {
-		addTask: function() {
-			let todo = {
-				'todo': this.newTask,
-				'completed': false
+		addTask: function(ev) {
+			if(ev.keyCode === 13) {
+
+				let todo = {
+					'todo': this.newTask,
+					'completed': false
+				}
+
+				this.listTodos.push(todo);
+				this.newTask = ''
+				updateLS(this.listTodos);
+
+				ev.target.blur();
 			}
 
-			this.listTodos.push(todo);
-			this.newTask = ''
-			updateLS(this.listTodos);
 		},
 		deleteTodo: function(index) {
 			this.listTodos.splice(index, 1);
@@ -156,7 +164,7 @@ export default {
 	color: #737373;
 }
 
-.todo form input {
+.todo form input, textarea {
 	width: 100%;
 	padding: 16px 0;
 	border: none;
@@ -165,8 +173,8 @@ export default {
 	color: #4d4d4d;
 }
 
-.todo form input::placeholder {
-	color: #ededed
+.todo form input::placeholder, .todo form textarea::placeholder {
+	color: #ededed;
 }
 
 .todo ul li {
@@ -176,6 +184,9 @@ export default {
 	position: relative;
 	border-bottom: 1px solid #ededed;
 	font-size: 24px;
+	padding-right:60px;
+	line-height: 30px;
+	word-break: break-all;
 }
 
 .todo ul li.completed {

@@ -45,6 +45,11 @@ export default {
 body {
 	background: #f5f5f5;
 }
+
+button, input, select, textarea {
+	outline: none;
+}
+
 ul {
 	list-style: none;
 	padding: 0;
