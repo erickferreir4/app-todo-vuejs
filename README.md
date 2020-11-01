@@ -10,6 +10,17 @@
 
 
 ## Project setup
+
+
+### Docker
+
+```
+docker-compose up --build
+
+```
+
+or
+
 ```
 npm install
 ```
