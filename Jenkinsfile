@@ -26,7 +26,7 @@ pipeline {
             	sh 'git init'
             	sh 'git add .'
             	sh 'git commit -m "Deploy from Jenkins"'
-            	sh 'git push --force --quiet "https://${GH_TOKEN}@github.com/erikferreir4/app-todo-vuejs.git" master:gh-pages '
+            	sh 'git push --force --quiet "https://${GH_TOKEN}@github.com/erickferreir4/app-todo-vuejs.git" master:gh-pages'
 			}
         }
     }
