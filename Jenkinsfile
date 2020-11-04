@@ -22,7 +22,6 @@ pipeline {
     }  
     stage('Deliver') {
         steps {
-            sh 'rm -rf .git'
 			dir('./build') {
             	sh 'git init'
             	sh 'git add .'
