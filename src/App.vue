@@ -44,6 +44,7 @@ export default {
 <style>
 body {
 	background: #f5f5f5;
+	background: black;
 }
 
 button, input, select, textarea {
